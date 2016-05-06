@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sun Tzu Art of War</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'suntzu_artofwar/bootstrap/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'suntzu_artofwar/css/styles.css' /%}">
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'suntzu_artofwar/js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'suntzu_artofwar/bootstrap/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+
+    {% block navigation %}
+    <!-- NAVIGATION -->
+    <nav class="navbar-inverse">
+        <div class="container">
+          <div class="row main-header">
+          <div class="col-xs-4 col-sm-4 col-lg-4"><h3>孫子兵法 </h3></div>
+          <div class="col-xs-8 col-sm-8 col-lg-8"><h1>SUN TZU ART OF WAR</h1></div>
+          </div>
+         </div>
+    </nav>
+
+    {% endblock %}
+
+
+    {% block container %}
+
+    {% endblock %}
+
+
+    <!---FOOTER--->
+    {% block footer %}
+      <footer class="container">
+        <div class="container footer">
+          <div class="row">
+            <p>&copy; alenush</p>
+          </div>
+        </div>
+      </footer>
+    {% endblock %}
+
+
+</body>
+</html>
