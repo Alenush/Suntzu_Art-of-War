@@ -40,10 +40,10 @@ class DocParser:
                     self.for_csv_data.append(data)
                     remember.clear()
             else:
-                if self.string_compare.match(data[1]):
-                    self.for_csv_data.append(('remarks', data[1]))
-                else:
-                    remember.append(data[1])
+                #if self.string_compare.match(data[1]):
+                #    self.for_csv_data.append(('remarks', data[1]))
+                #else:
+                remember.append(data[1])
 
     def write_in_csv(self):
         """
