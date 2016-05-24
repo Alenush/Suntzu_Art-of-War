@@ -11,7 +11,6 @@ class DocTranslateParser:
 
     def __init__(self):
         self.subs = []
-        self.csv_file = 'suntzu_translation.csv'
         self.current_sub = 0
         self.sub_left = defaultdict(lambda: defaultdict(list))
         self.sub_right = defaultdict(list)
@@ -49,11 +48,7 @@ class DocTranslateParser:
                                         self.sub_right['black'].append(com.text)
 
     def collect_in_one_dict(self):
-        """
-
-        """
-        with open('db_table_comments.csv', 'w', encoding='utf-8') as com_table:
-            com_table.write('chapter,sub_ch,commentator,comment\n')
+        with open('translations_all.csv', 'w', encoding='utf-8') as com_table:
             for key in self.subs:
                 for type, arr in self.sub_left[key].items():
                     length = len(self.sub_left[key][type])
@@ -61,10 +56,13 @@ class DocTranslateParser:
                     new_right = right_array[:length]
                     for left, right in zip(self.sub_left[key][type], new_right):
                         right_array.remove(right)
-                        com_table.write('1|'+key+'|'+left+'|'+right+'\n')
+                        key = key.replace('﹣', '-')
+                        com_table.write('1|' + key + '|' + left + '|' + right + '\n')
 
 
 if __name__ == "__main__":
     document = DocTranslateParser()
     document.begin_parsing_doc('sun_tzu_translate.html') #kusok_table2.html
     document.collect_in_one_dict()
+    #document.write_comments()
+    #document.write_chapters()
