@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+
+{% block container %}
+
+<div class="container">
+
+    <div class="main_chapters" >
+
+        <div class="col-md-12 chapter_element">
+            CONTENT
+        </div>
+
+        <div class="col-md-4 col-lg-4 chapter_element">
+            <a href="{% url 'book' %}">All chapters</a>
+        </div>
+
+        {% for num in chapters %}
+        <div class="col-md-4 col-lg-4 chapter_element">
+            <a href="#"> Chapter {{ num }} </a>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+    <div class="container-fluid">
+        <div class="col-md-4 extra_info">
+            <ul>
+                <li>Sun Tzu</li>
+                <li>About the book</li>
+                <li>Contacts</li>
+            </ul>
+        </div>
+        <div class="col-md-8 info_block">
+            Visual block <br>
+            Visual block <br>
+            Visual block <br>
+        </div>
+    </div>
+
+{% endblock %}
