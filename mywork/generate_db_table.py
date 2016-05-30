@@ -16,6 +16,7 @@ class SunTzuData:
         self.content = defaultdict(lambda: defaultdict(str))
         self.translation_data = translations
         self.com_array = []
+        self.sub_ch_content = ''
 
         for line in book.split('\n'):
             if len(line.split(',')) == 1:
@@ -24,7 +25,8 @@ class SunTzuData:
                     self.sub_chapter = 0
                 elif line.split(',')[0]!='':
                     self.sub_chapter +=1
-                    self.content[str(self.chapters)][str(self.sub_chapter)] = line.split(',')[0]
+                    self.sub_ch_content = line.split(',')[0]
+                    self.content[str(self.chapters)][str(self.sub_chapter)] = self.sub_ch_content
             else:
                 commentator = line.split(',')[0][1:-1]
                 comment = line.split(',')[1]
@@ -32,7 +34,8 @@ class SunTzuData:
                     self.comments(commentator, comment)
                 else:
                     my_string = '|'.join([str(self.chapters),
-                         str(self.sub_chapter), commentator, comment])
+                         str(self.sub_chapter), self.sub_ch_content, commentator, comment])
+                    print(my_string)
                     self.com_array.append(my_string)
 
     def comments(self, commentator, comment):
@@ -41,13 +44,13 @@ class SunTzuData:
                 punkt, translator, translate = com_ar[1], com_ar[2], com_ar[3]
                 if str(punkt) == str(self.sub_chapter):
                     if self.commentators[commentator] == translator:
-                        element = '|'.join([str(self.chapters), str(self.sub_chapter), commentator,
-                                comment, translator,translate])
+                        element = '|'.join([str(self.chapters), str(self.sub_chapter), self.sub_ch_content,
+                                commentator, comment, translator, translate])
                         self.com_array.append(element)
                         self.current_element = element
                     else:
                         my_string = '|'.join([str(self.chapters),
-                                    str(self.sub_chapter), commentator, comment])
+                                    str(self.sub_chapter), self.sub_ch_content, commentator, comment])
                         if my_string not in self.com_array:
                             if my_string != self.current_element[:len(my_string)]:
                                 self.com_array.append(my_string)
@@ -82,14 +85,14 @@ def open_csv_book():
 def write_content():
     """Write translation for content sub-chapters"""
     with open('translation_chapters.csv', 'w', encoding='utf-8') as comments:
-        for line in sub_chapters:
-            comments.write(line+'\n')
+        for n, line in enumerate(sub_chapters, 1):
+            comments.write(str(n)+'|'+line+'\n')
 
 def write_comments(com_array):
     """Write translation for comments"""
     with open('db_translation_comments.csv', 'w', encoding='utf-8') as db_table:
-        for line in com_array:
-            db_table.write(line+'\n')
+        for n, line in enumerate(com_array,1):
+            db_table.write(str(n)+'|'+line+'\n')
 
 def open_csv_trans_comments():
     """Open all translation, divide on content and comments and add extra comment translations!
