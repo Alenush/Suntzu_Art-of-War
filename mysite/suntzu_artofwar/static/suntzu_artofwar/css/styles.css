@@ -1,5 +1,57 @@
+body{
+    background-color: #f3f3ed;
+}
+
 
 .main-header{
     color:silver;
     font-family: 'Cinzel', serif;
+}
+
+.main_chapters{
+    /*background-color: white;*/
+    padding-top: 1em;
+    padding-bottom: 23em;
+    width: 85%;
+    margin: 3em auto;
+    border-top: 2px solid silver;
+    border-bottom: 2px solid silver;
+    /*box-shadow: 15px 0 15px -20px #000 inset, -15px 0 15px -20px #000 inset; */
+}
+
+@media screen and (max-device-width: 1024px) {
+
+    .main_chapters{
+        padding-bottom: 2em;
+    }
+
+}
+
+.chapter_element{
+
+    padding: 1em;
+    text-align: center;
+}
+
+.extra_info{
+    background-image:url('../images/sun-tzu.jpg');
+    background-size: cover;
+    margin: 0, auto;
+    padding: 5em;
+    color: silver;
+    border: 1px solid silver;
+    text-align: right;
+}
+
+.info_block {
+    margin: 1em, auto;
+    padding: 3em;
+    color: black;
+    border: 1px solid silver;
+    text-align: center;
+}
+
+.chapter{
+    text-align: center;
+
 }
