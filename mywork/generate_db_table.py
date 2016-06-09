@@ -32,10 +32,13 @@ class SunTzuData:
                 comment = line.split(',')[1]
                 if self.chapters == 1:
                     self.comments(commentator, comment)
+                    my_string = '|'.join([str(self.chapters),
+                                          str(self.sub_chapter), self.sub_ch_content, commentator, comment])
+                    if my_string not in self.com_array:
+                        self.com_array.append(my_string)
                 else:
                     my_string = '|'.join([str(self.chapters),
                          str(self.sub_chapter), self.sub_ch_content, commentator, comment])
-                    print(my_string)
                     self.com_array.append(my_string)
 
     def comments(self, commentator, comment):
@@ -54,6 +57,7 @@ class SunTzuData:
                         if my_string not in self.com_array:
                             if my_string != self.current_element[:len(my_string)]:
                                 self.com_array.append(my_string)
+
 
     def write_db_chapter_table(self):
         """

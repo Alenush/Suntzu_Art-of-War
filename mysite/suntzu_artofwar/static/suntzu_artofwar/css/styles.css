@@ -8,6 +8,20 @@ body{
     font-family: 'Cinzel', serif;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: #6F4E37;
+    text-decoration: underline ;
+}
+
+.main_href, .main_href:hover{
+    color:silver;
+    text-decoration:none;
+}
+
 .main_chapters{
     /*background-color: white;*/
     padding-top: 1em;
@@ -18,6 +32,16 @@ body{
     border-bottom: 2px solid silver;
     /*box-shadow: 15px 0 15px -20px #000 inset, -15px 0 15px -20px #000 inset; */
 }
+
+.my_button{
+    border: #E0DAD3;
+    background-color: #9A846D;
+}
+.my_button:hover{
+    border: #E0DAD3;
+    background-color: #6E5E4C;
+}
+
 
 @media screen and (max-device-width: 1024px) {
 
@@ -33,23 +57,37 @@ body{
     text-align: center;
 }
 
-.extra_info{
-    background-image:url('../images/sun-tzu.jpg');
+.extra_info1{
+    background-image:url('../images/phone.jpeg');
     background-size: cover;
     margin: 0, auto;
     padding: 5em;
-    color: silver;
-    border: 1px solid silver;
-    text-align: right;
+    border: 1px solid black;
+    text-align: center;
+    color: black;
+    font-weight: 900;
+}
+.extra_info2{
+    background-image:url('../images/about.jpeg');
+    background-size: cover;
+    margin: 0, auto;
+    padding: 5em;
+    border: 1px solid black;
+    text-align: center;
+    color: black;
+    font-weight: 900;
+}
+.extra_info3{
+    background-image:url('../images/class.jpeg');
+    background-size: cover;
+    margin: 0, auto;
+    padding: 5em;
+    border: 1px solid black;
+    text-align: center;
+    color: black;
+    font-weight: 900;
 }
 
-.info_block {
-    margin: 1em, auto;
-    padding: 3em;
-    color: black;
-    border: 1px solid silver;
-    text-align: center;
-}
 
 .chapter{
     text-align: center;

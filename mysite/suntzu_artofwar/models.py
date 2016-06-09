@@ -12,7 +12,7 @@ class ChaptersTranslation(models.Model):
     translation = models.CharField(max_length=2000, verbose_name='translations')
 
     def __unicode__(self):
-        return self.chapter
+        return str(self.chapter)
 
 class Comments(models.Model):
 

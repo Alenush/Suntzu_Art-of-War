@@ -32,13 +32,24 @@
 
             <form class="form-inline pull-xs-right">
             <input class="form-control" type="text" placeholder="Search">
-            <button class="btn btn-primary btn-sm" type="submit">Search</button>
+            <button class="btn btn-primary btn-sm my_button" type="submit">Search</button>
             </form>
 
         </ul>
 
         </div>
     </div>
+
+        <div style="display:none">
+            {% for objects, sub in sub_translations %}
+                <div class="sub_translation">
+                <h3> {{ sub }}</h3>
+                {% for obj in objects %}
+                    <p>{{obj.translator}}, {{obj.translation}}</p>
+                {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
 
         <div class="col-md-9">
 
@@ -49,13 +60,13 @@
                     {% ifchanged chapter.sub_chapters %}
                     <h3>{{ chapter.sub_chapters }} {{ chapter.sub_content }}</h3>
                     {% endifchanged %}
-                    <p> <b>{{ chapter.commentator}}</b> {{ chapter.comment}} </p>
+                    <p> <b>{{ chapter.commentator}}</b>{{ chapter.comment}} </p>
                     {% if chapter.com_translator|length > 5 %}
                         {% load static %}
                         <img src="{% static 'suntzu_artofwar/images/translate.png' %}"
                              style="cursor:pointer;" id="translate_button">
                         <div class="translation" style="display:none;" id="translation">
-                         <p> {{ chapter.com_translator }} {{chapter.com_translation }} </p>
+                         <p>{{ chapter.com_translator }} {{chapter.com_translation }}</p>
                         </div>
                     {% endif %}
             {% endfor %}
