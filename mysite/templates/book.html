@@ -46,19 +46,25 @@
             {% for chapter in all_content %}
                 {% for content in chapter %}
                     {% if forloop.first %}
-                        <h2 class="chapter"> {{ content.chapter }} </h2>
+                        <h2 class="chapter"> Chapter {{ content.chapter }} </h2> <br>
                     {% endif %}
                     {% ifchanged content.sub_chapters %}
-                    <h3>{{ content.sub_chapters }} {{ content.sub_content }}</h3>
+                    <center><h3>{{ content.sub_chapters }} {{ content.sub_content }}</h3></center>
                     {% endifchanged %}
-                    <p> <b>{{ content.commentator}}</b> {{ content.comment}} </p>
-                    {% if content.com_translator|length > 5 %}
+                    <div class="col-md-12">
+                    <div class="col-md-2"><b style="font-size:large">{{ content.commentator}}</b></div>
+                    <div class="col-md-10"> {{ content.comment}}</div>
+                    </div>
+                        {% if content.com_translator|length > 5 %}
                         {% load static %}
+                        <center>
                         <img src="{% static 'suntzu_artofwar/images/translate.png' %}"
-                             style="cursor:pointer;" id="translate_button">
-                        <div class="translation" style="display:none;" id="translation">
+                             style="cursor:pointer;" alt="Translate" id="translate_button_{{content.id}}">
+
+                        <div class="translation" style="display:none;" id="translation_{{content.id}}">
                          <p> {{ content.com_translator }} {{content.com_translation }} </p>
                         </div>
+                        </center>
                     {% endif %}
                 {% endfor %}
                 <hr>
@@ -67,5 +73,6 @@
 
 </div>
 
+<a href="#" class="back-to-top">Up</a>
 
 {% endblock %}

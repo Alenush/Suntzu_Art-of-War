@@ -93,3 +93,27 @@ a:hover{
     text-align: center;
 
 }
+
+.translation{
+    background-color: black;
+    color: white;
+    opacity: 0.8;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+/* Up button */
+a.back-to-top {
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	left: 20px;
+	bottom: 20px;
+	background:url("../images/up2.png") no-repeat center 50%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
