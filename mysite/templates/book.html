@@ -2,46 +2,29 @@
 
 {% block container %}
 
-<div class="container-fluid">
 
-    <div class="col-md-3">
+    <div class="col-md-12">
 
-        <div class="nav nav-pills nav-stacked">
-          <li class="nav-item">
-            <a class="nav-link active" href="#"></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Return to main</a>
-          </li>
+    <div class="col-md-3 left_menu" id='left_menu' style="display:none">
 
-          <li class="navbar-toggler" data-toggle="collapse" data-target="#exCollapsingNavbar">
-            <a class="nav-link" href="#">Choose chapter</a>
-          </li>
-
-            <div class="collapse" id="exCollapsingNavbar">
-              <div class="bg-inverse p-a-1">
-              <ul>
-              {% for num in chapters %}
-              <li class="nav-item">
-                <a class="nav-link" href="chapter/{{num}}/">Chapter {{num}}</a>
-              </li>
-              {% endfor %}
-              </ul>
-              </div>
-            </div>
-
-            <form class="form-inline pull-xs-right">
-            <input class="form-control" type="text" placeholder="Search">
-            <button class="btn btn-primary btn-sm my_button" type="submit">Search</button>
-            </form>
-
-        </ul>
-
-        </div>
+    <div class="navigation">
+         <a href="{% url 'index' %}" class="nav-item">Return to main</a>
+                {% for num in chapters %}
+         <a href="chapter/{{num}}/" class="nav-item">Chapter {{num}}</a>
+                {% endfor %}
+        <form class="form-inline pull-xs-right">
+                    <input class="form-control" type="text" placeholder="Search">
+                    <button class="btn btn-primary btn-sm my_button" type="submit">Search</button>
+        </form>
     </div>
 
-        <div class="col-md-9">
+    </div>
 
+        <div class="col-md-12" id="site_wrap" style="padding:1em">
+
+            <div class="site-wrap">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger"></label>
 
             {% for chapter in all_content %}
                 {% for content in chapter %}
@@ -70,8 +53,11 @@
                 <hr>
             {% endfor %}
         </div>
+        </div>
 
-</div>
+        </div>
+
+
 
 <a href="#" class="back-to-top">Up</a>
 
