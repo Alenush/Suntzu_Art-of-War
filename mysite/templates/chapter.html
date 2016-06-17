@@ -26,23 +26,23 @@
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
             <label for="nav-trigger"></label>
 
-        <div style="display:none">
             {% for objects, sub in sub_translations %}
-                <div class="sub_translation">
-                <h3> {{ sub }}</h3>
-                {% for obj in objects %}
-                    <p>{{obj.translator}}, {{obj.translation}}</p>
-                {% endfor %}
-                </div>
+                <div id="sub-translation_{{ sub }}" class="popup-box" style="display:none">
+
+                    <h3> {{ sub }}</h3>
+                    {% for obj in objects %}
+                        <p>{{obj.translator}}, {{obj.translation}}</p>
+                    {% endfor %}
+                    </div>
             {% endfor %}
-        </div>
+
 
             {% for chapter in chapter_info %}
                 {% if forloop.first %}
                     <center><h1> Chapter {{chapter}} </h1></center><br>
                 {% endif %}
                     {% ifchanged chapter.sub_chapters %}
-                        <center><h3>{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3> </center>
+                        <center><h3 id="subchapter_{{chapter.sub_chapters}}">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3> </center>
                     {% endifchanged %}
                     <div class="col-md-12">
                     <div class="col-md-2"><b style="font-size:large">{{ chapter.commentator}}</b></div>
