@@ -71,11 +71,17 @@ function check_chapter(chapter) {
         var array = all_trans[i].id.split('_');
         var sub = array[array.length - 1];
         var paar = sub.split('-');
-        if (paar[0] == chapter){
-            ok_sub = all_trans[i];
-        };
-        if (paar[1] == chapter){
-            ok_sub = all_trans[i];
+        if (paar.length == 1 ){
+            if (chapter == sub){
+                console.log("SUB", chapter, sub, paar.length)
+                ok_sub = all_trans[i];
+            };
+        } else {
+            if (parseInt(chapter) >= parseInt(paar[0]) && parseInt(chapter) <= parseInt(paar[1])){
+                console.log('inside: ', all_trans[i])
+                ok_sub = all_trans[i];
+                break;
+            };
         };
     };
     return ok_sub.id;
@@ -84,7 +90,6 @@ function check_chapter(chapter) {
 $("[id*=subchapter]").click(function(){
     var my_array = this.id.split('_')
     var chapter = my_array[my_array.length - 1];
-    console.log(chapter);
     var translate_sub = check_chapter(chapter);
     var ask_for = translate_sub.split('_')
     var my_chapter = ask_for[ask_for.length - 1]

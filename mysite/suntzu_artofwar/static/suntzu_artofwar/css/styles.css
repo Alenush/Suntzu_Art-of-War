@@ -87,6 +87,9 @@ a:hover{
     border: 1px solid black;
     text-align: center;
     color: black;
+}
+
+h4 {
     font-weight: 900;
 }
 
@@ -105,7 +108,6 @@ a:hover{
 
 .chapter{
     text-align: center;
-
 }
 
 .translation{
@@ -170,9 +172,20 @@ ul {
 .site-wrap {
   background-color: white; /* Needs a background or else the nav will show through */
   padding: 3em;
+  height:100%;
+  padding-bottom: 30em;
  /* background-image: linear-gradient(135deg, rgb(254,255,255) 0%,rgb(221,241,249) 35%,rgb(160,216,239) 100%);
   background-size: 200%; */
 }
+
+@media screen and (max-device-width: 1024px) {
+
+    .site-wrap{
+        padding-bottom: 2em;
+    }
+
+}
+
 
 /* Nav Trigger */
 .nav-trigger {
@@ -192,62 +205,7 @@ label[for="nav-trigger"] {
   background-size: contain;
 }
 
-/* Popup for translation */
-
-/*
-.popup-box {
-    position: absolute;
-    border-radius: 5px;
-    background: #fff;
-    display: none;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-    font-family: Arial, sans-serif;
-    z-index: 9999999;
-    font-size: 14px;
-}
-
-.popup-box .close {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    cursor: pointer;
-    color: #434343;
-    padding: 20px;
-    font-size: 20px;
-}
-
-.popup-box .close:hover {
-    color: #000;
-}
-
-.popup-box h2 {
-    padding: 0;
-    margin: 0;
-    font-size: 18px;
-}
-.popup-box .top {
-    padding: 20px;
-}
-
-.popup-box .bottom {
-    background: #eee;
-    border-top: 1px solid #e5e5e5;
-    padding: 20px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-#blackout {
-    background: rgba(0,0,0,0.3);
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-    z-index: 999999;
-    left: 0;
-    display: none;
-}*/
+/* Popup stuff */
 
 .subchapter {
     cursor:pointer;
