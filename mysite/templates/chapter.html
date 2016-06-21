@@ -27,23 +27,28 @@
             <label for="nav-trigger"></label>
 
             {% for objects, sub in sub_translations %}
-                <div id="sub-translation_{{ sub }}" class="popup-box" style="display:none">
-
-                    <h3> {{ sub }}</h3>
+             <div class="overlay" id="overlay_{{sub}}">
+                <div id="sub-translation_{{ sub }}" class="popup" style="display:none">
+                    <span class="close">X</span>
+                    <h3>Translation {{ sub }}</h3>
                     {% for obj in objects %}
-                        <p>{{obj.translator}}, {{obj.translation}}</p>
+                        <p> <b>{{obj.translator}}</b>: {{obj.translation}}</p>
                     {% endfor %}
                     </div>
+             </div>
             {% endfor %}
-
 
             {% for chapter in chapter_info %}
                 {% if forloop.first %}
                     <center><h1> Chapter {{chapter}} </h1></center><br>
                 {% endif %}
                     {% ifchanged chapter.sub_chapters %}
+                        {% if chapter.chapter == 1 %}
+                        <center><h3 id="subchapter_{{chapter.sub_chapters}}" class="subchapter">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3> </center>
+                        {% else %}
                         <center><h3 id="subchapter_{{chapter.sub_chapters}}">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3> </center>
-                    {% endifchanged %}
+                        {% endif %}
+                {% endifchanged %}
                     <div class="col-md-12">
                     <div class="col-md-2"><b style="font-size:large">{{ chapter.commentator}}</b></div>
                     <div class="col-md-10"> {{ chapter.comment}}</div>

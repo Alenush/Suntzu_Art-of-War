@@ -46,8 +46,20 @@ $('label').click(function() {
 
 /* Translation of sub-chapters. Popup */
 
-function showPopup(chapter) {
+/*function showPopup(chapter) {
     $('#'+chapter).css('display','block');
+}*/
+
+function showPopup(chapter) {
+console.log(chapter);
+$('#sub-translation_'+chapter).css('display', 'block');
+$('#overlay_'+chapter).css('display', 'block');
+
+$('.close').click(function() {
+    $('#sub-translation_'+chapter).css('display', 'none');
+    $('#overlay_'+chapter).css('display', 'none');
+});
+
 }
 
 var all_trans = $("[id*=sub-translation");
@@ -72,10 +84,11 @@ function check_chapter(chapter) {
 $("[id*=subchapter]").click(function(){
     var my_array = this.id.split('_')
     var chapter = my_array[my_array.length - 1];
+    console.log(chapter);
     var translate_sub = check_chapter(chapter);
-    showPopup(translate_sub);
+    var ask_for = translate_sub.split('_')
+    var my_chapter = ask_for[ask_for.length - 1]
+    showPopup(my_chapter);
     });
-
-
 
 });
