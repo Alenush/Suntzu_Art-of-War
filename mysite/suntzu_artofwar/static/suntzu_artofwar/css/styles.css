@@ -230,22 +230,18 @@ label[for="nav-trigger"] {
 
 .popup {
     display:none;
-    min-width: 320px;
-    /*max-width: 980px;*/
+    /*min-width: 320px;
+    max-width: 980px;*/
     border: 1px solid #383838;
     background: #fefefe;
     color: #31235e;
-    position:relative;
+    position:fixed;
     border:3px solid #999;
     background:#fff;
-    width:80%;
-    height: 80%;
-    bottom: 20%;
-    right: 20%;
+    bottom: 25%;
     top:20%;
     left:20%;
-    margin:-100px 0 0 -100px;
-    z-index:1000;
+    right: 20%;
     border-radius:10px;
     padding:3em;
     color: #31235e;

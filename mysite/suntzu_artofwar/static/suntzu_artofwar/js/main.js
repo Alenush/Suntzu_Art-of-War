@@ -60,7 +60,15 @@ $('.close').click(function() {
     $('#overlay_'+chapter).css('display', 'none');
 });
 
-}
+$(document).keydown(function(e) {
+    // ESCAPE key pressed
+    if (e.keyCode == 27) {
+        $('#sub-translation_'+chapter).css('display', 'none');
+        $('#overlay_'+chapter).css('display', 'none');
+    }
+});
+
+};
 
 var all_trans = $("[id*=sub-translation");
 

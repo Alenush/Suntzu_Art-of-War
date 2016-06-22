@@ -20,7 +20,7 @@
     </div>
 
 
-    <div class="col-md-12" id="site_wrap" style="padding:1em">
+    <div class="col-md-12" id="site_wrap" style="padding:1em" >
 
            <div class="site-wrap">
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -29,6 +29,7 @@
             {% for objects, sub in sub_translations %}
              <div class="overlay" id="overlay_{{sub}}">
                 <div id="sub-translation_{{ sub }}" class="popup" style="display:none">
+
                     <span class="close">X</span>
                     <h3>Translation {{ sub }}</h3>
                     {% for obj in objects %}
@@ -40,7 +41,7 @@
 
             {% for chapter in chapter_info %}
                 {% if forloop.first %}
-                    <center><h1> Chapter {{chapter}} </h1></center><br>
+                    <center><h1> Chapter {{chapter.id}} </h1></center><br>
                 {% endif %}
                     {% ifchanged chapter.sub_chapters %}
                         {% if chapter.chapter == 1 %}
