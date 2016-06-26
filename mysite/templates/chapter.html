@@ -12,8 +12,8 @@
          <a href="{% url 'mychapter' num %}" class="nav-item">Chapter {{num}}</a>
                 {% endfor %}
         <form class="form-inline pull-xs-right">
-                    <input class="form-control" type="text" placeholder="Search">
-                    <button class="btn btn-primary btn-sm my_button" type="submit">Search</button>
+                    <input id="searchbox" class="form-control" type="text" placeholder="Search in chapter">
+                   <!-- <button id="search_button" class="btn btn-primary btn-sm my_button" type="button">Search</button> -->
         </form>
     </div>
 
@@ -41,13 +41,13 @@
 
             {% for chapter in chapter_info %}
                 {% if forloop.first %}
-                    <center><h1> Chapter {{chapter.id}} </h1></center><br>
+                    <center><h1> Chapter {{chapter.chapter}} </h1></center><br>
                 {% endif %}
                     {% ifchanged chapter.sub_chapters %}
                         {% if chapter.chapter == 1 %}
-                        <center><h3 id="subchapter_{{chapter.sub_chapters}}" class="subchapter">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3> </center>
+                        <h3 id="subchapter_{{chapter}}_{{chapter.sub_chapters}}" class="subchapter">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3>
                         {% else %}
-                        <center><h3 id="subchapter_{{chapter.sub_chapters}}">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3> </center>
+                        <h3 id="subchapter_{{chapter}}_{{chapter.sub_chapters}}" class="subchapter">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3>
                         {% endif %}
                 {% endifchanged %}
                     <div class="col-md-12">

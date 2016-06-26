@@ -32,7 +32,7 @@ $('a.back-to-top').click(function() {
 $('label').click(function() {
 
     var position = $('#left_menu').css('display');
-    console.log(position);
+    /*console.log(position);*/
     if (position == 'none'){
 	    $('#left_menu').css('display','block');
     }
@@ -103,5 +103,49 @@ $("[id*=subchapter]").click(function(){
     var my_chapter = ask_for[ask_for.length - 1]
     showPopup(my_chapter);
     });
+
+/* SEARCH functionality */
+var book = $("[id*=subchapter]");
+console.log('LENGTH: ', book.length);
+
+$('#searchbox').keypress(function(e){
+      $('#left_menu').css('display','block');
+      // check if the key that was pressed
+      // is the return key (it has id 13)
+      // and only do the search if it is
+      if (e.which == 13){
+        e.preventDefault();
+        // get the search text which is the
+        // contents of the search box
+        for (var chapter=1; chapter < 14; chapter++){
+            for (var i=1; i < book.length+1; i++){
+                $('#subchapter_'+chapter+'_'+i).css('color', 'black');
+            }
+        };
+        var search_text = $('#searchbox').val();
+
+        // print the search box
+        console.log(search_text);
+
+        for (var chapter=1; chapter < 14; chapter++){
+
+            var my_ch = $("[id*=subchapter_"+chapter+"_]");
+
+            for (var i=1; i < my_ch.length+1; i++){
+                console.log($('#subchapter_'+chapter+'_'+i).html());
+                console.log("My number: ", chapter, i);
+
+                if ($('#subchapter_'+chapter+'_'+i).html().includes(search_text)){
+                    console.log('URA!',$('#subchapter_'+chapter+'_'+i).html());
+
+                    $('#subchapter_'+chapter+'_'+i).css('color', 'red');
+
+                };
+            };
+        };
+
+
+        };
+      });
 
 });

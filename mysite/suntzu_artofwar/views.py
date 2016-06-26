@@ -48,10 +48,12 @@ def first_chapter_translation():
     for n, obj in enumerate(translate_chapter,1):
         if obj.sub_chapters == current_sub:
             current_sub_trans.append(obj)
-            if n == 135:
+            if n == 145:
                 translate_objects.append((current_sub_trans, current_sub))
         else:
+            # print(len(current_sub_trans), current_sub, current_sub_trans)
             translate_objects.append((current_sub_trans, current_sub))
             current_sub_trans = []
             current_sub = obj.sub_chapters
+            current_sub_trans.append(obj)
     return translate_objects

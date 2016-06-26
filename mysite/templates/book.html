@@ -13,9 +13,9 @@
          <a href="chapter/{{num}}/" class="nav-item">Chapter {{num}}</a>
                 {% endfor %}
         <form class="form-inline pull-xs-right">
-                    <input class="form-control" type="text" placeholder="Search">
-                    <button class="btn btn-primary btn-sm my_button" type="submit">Search</button>
-        </form>
+                    <input id="searchbox" class="form-control" type="text" placeholder="Book search">
+                    <!--<button id="search_button" class="btn btn-primary btn-sm my_button" type="submit">Search</button> -->
+.        </form>
     </div>
 
     </div>
@@ -47,9 +47,9 @@
                     {% endif %}
                     {% ifchanged content.sub_chapters %}
                         {% if content.chapter == 1 %}
-                        <center><h3 id="subchapter_{{content.sub_chapters}}" class="subchapter">{{ content.sub_chapters }} {{ content.sub_content }}</h3> </center>
+                        <h3 id="subchapter_{{content.chapter}}_{{content.sub_chapters}}" class="subchapter">{{ content.sub_chapters }} {{ content.sub_content }}</h3>
                         {% else %}
-                        <center><h3 id="subchapter_{{content.sub_chapters}}">{{ content.sub_chapters }} {{ content.sub_content }}</h3> </center>
+                        <h3 id="subchapter_{{content.chapter}}_{{content.sub_chapters}}" class="subchapter">{{ content.sub_chapters }} {{ content.sub_content }}</h3>
                         {% endif %}
                     {% endifchanged %}
                     <div class="col-md-12">

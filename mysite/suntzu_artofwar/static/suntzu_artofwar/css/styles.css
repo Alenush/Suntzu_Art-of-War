@@ -209,6 +209,7 @@ label[for="nav-trigger"] {
 
 .subchapter {
     cursor:pointer;
+    text-align: center;
 }
 
 .subchapter:hover{
