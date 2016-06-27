@@ -58,7 +58,9 @@ $('#overlay_'+chapter).css('display', 'block');
 $('.close').click(function() {
     $('#sub-translation_'+chapter).css('display', 'none');
     $('#overlay_'+chapter).css('display', 'none');
+$('#sub-translation_'+chapter).css('display', 'block');
 });
+
 
 $(document).keydown(function(e) {
     // ESCAPE key pressed
@@ -95,7 +97,7 @@ function check_chapter(chapter) {
     return ok_sub.id;
 };
 
-$("[id*=subchapter_1_]").click(function(){
+/*$("[id*=subchapter_1_]").click(function(){
     var my_array = this.id.split('_')
     var chapter = my_array[my_array.length - 1];
     var translate_sub = check_chapter(chapter);
