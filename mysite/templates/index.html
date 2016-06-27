@@ -7,10 +7,57 @@
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'suntzu_artofwar/bootstrap/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'suntzu_artofwar/css/styles.css' /%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'suntzu_artofwar/css/jquery-ui.css' /%}">
     <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="{% static 'suntzu_artofwar/js/main.js' %}"></script>
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="{% static 'suntzu_artofwar/bootstrap/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'suntzu_artofwar/js/main.js' %}"></script>
+
+  <script>
+
+  $(document).ready(function(){
+
+  function check_chapter(chapter) {
+    var ok_sub = '';
+
+    for (var i=0; i < all_trans.length; i++) {
+        var array = all_trans[i].id.split('_');
+        var sub = array[array.length - 1];
+        var paar = sub.split('-');
+        if (paar.length == 1 ){
+            if (chapter == sub){
+                console.log("SUB", chapter, sub, paar.length)
+                ok_sub = all_trans[i];
+            };
+        } else {
+            if (parseInt(chapter) >= parseInt(paar[0]) && parseInt(chapter) <= parseInt(paar[1])){
+                console.log('inside: ', all_trans[i])
+                ok_sub = all_trans[i];
+                break;
+            };
+        };
+    };
+    return ok_sub.id;
+  };
+
+  var all_trans = $("[id*=sub-translation");
+
+  $("[id*=subchapter_1_]").click(function(){
+    console.log('BEGIN IT');
+    var my_array = this.id.split('_')
+    var chapter = my_array[my_array.length - 1];
+    var translate_sub = check_chapter(chapter);
+    var ask_for = translate_sub.split('_')
+    var my_chapter = ask_for[ask_for.length - 1]
+    console.log(my_chapter);
+    $('#sub-translation_'+my_chapter).dialog({width:'60%'}).dialog("widget").find( ".ui-dialog-titlebar-close" )
+            .hide();
+    });
+
+  });
+  </script>
 
 </head>
 <body>

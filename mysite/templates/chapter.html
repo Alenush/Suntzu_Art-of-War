@@ -27,7 +27,7 @@
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
             <label for="nav-trigger"></label>
 
-            {% for objects, sub in sub_translations %}
+            <!--{% for objects, sub in sub_translations %}
              <div class="overlay" id="overlay_{{sub}}">
                 <div id="sub-translation_{{ sub }}" class="popup" style="display:none">
 
@@ -37,6 +37,15 @@
                         <p> <b>{{obj.translator}}</b>: {{obj.translation}}</p>
                     {% endfor %}
                     </div>
+             </div>
+            {% endfor %} -->
+
+
+            {% for objects, sub in sub_translations %}
+            <div id="sub-translation_{{ sub }}" title="Translation {{sub}}" style="display:none;">
+                    {% for obj in objects %}
+                        <p> <b>{{obj.translator}}</b>: {{obj.translation}}</p>
+                    {% endfor %}
              </div>
             {% endfor %}
 

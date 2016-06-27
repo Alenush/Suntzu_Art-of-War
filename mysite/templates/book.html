@@ -28,16 +28,13 @@
 
 
             {% for objects, sub in sub_translations %}
-             <div class="overlay" id="overlay_{{sub}}">
-                <div id="sub-translation_{{ sub }}" class="popup" style="display:none">
-                    <span class="close">X</span>
-                    <h3>Translation {{ sub }}</h3>
+            <div id="sub-translation_{{ sub }}" title="Translation {{sub}}" style="display:none;">
                     {% for obj in objects %}
                         <p> <b>{{obj.translator}}</b>: {{obj.translation}}</p>
                     {% endfor %}
-                    </div>
              </div>
             {% endfor %}
+
 
             {% for chapter in all_content %}
                 {% for content in chapter %}
