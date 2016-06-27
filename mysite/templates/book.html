@@ -13,7 +13,8 @@
          <a href="chapter/{{num}}/" class="nav-item">Chapter {{num}}</a>
                 {% endfor %}
         <form class="form-inline pull-xs-right">
-                    <input id="searchbox" class="form-control" type="text" placeholder="Book search">
+            <p style="color:white;padding-top:5px">Search in book content:</p>
+            <input id="searchbox" class="form-control" type="text" placeholder="Find in book">
                     <!--<button id="search_button" class="btn btn-primary btn-sm my_button" type="submit">Search</button> -->
 .        </form>
     </div>
@@ -21,9 +22,7 @@
     </div>
 
 
-        <div class="col-md-12" id="site_wrap" style="padding:1em">
-
-            <div class="site-wrap">
+            <div class="col-md-12 site-wrap" id="site_wrap" >
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
             <label for="nav-trigger"></label>
 
@@ -49,7 +48,7 @@
                         {% if content.chapter == 1 %}
                         <h3 id="subchapter_{{content.chapter}}_{{content.sub_chapters}}" class="subchapter">{{ content.sub_chapters }} {{ content.sub_content }}</h3>
                         {% else %}
-                        <h3 id="subchapter_{{content.chapter}}_{{content.sub_chapters}}" class="subchapter">{{ content.sub_chapters }} {{ content.sub_content }}</h3>
+                        <h3 id="subchapter_{{content.chapter}}_{{content.sub_chapters}}" style="text-align:center">{{ content.sub_chapters }} {{ content.sub_content }}</h3>
                         {% endif %}
                     {% endifchanged %}
                     <div class="col-md-12">
@@ -70,7 +69,6 @@
                 {% endfor %}
                 <hr>
             {% endfor %}
-        </div>
         </div>
 
         </div>

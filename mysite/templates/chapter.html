@@ -7,12 +7,13 @@
     <div class="col-md-3 left_menu" id='left_menu' style="display:none">
 
     <div class="navigation">
-         <a href="{% url 'index' %}" class="nav-item">Return to main</a>
+         <a href="{% url 'book' %}" class="nav-item">Whole book</a>
                 {% for num in chapters %}
          <a href="{% url 'mychapter' num %}" class="nav-item">Chapter {{num}}</a>
                 {% endfor %}
         <form class="form-inline pull-xs-right">
-                    <input id="searchbox" class="form-control" type="text" placeholder="Search in chapter">
+            <p style="color:white;padding-top:5px">Search in book content:</p>
+            <input id="searchbox" class="form-control" type="text" placeholder="Find in chapter">
                    <!-- <button id="search_button" class="btn btn-primary btn-sm my_button" type="button">Search</button> -->
         </form>
     </div>
@@ -20,9 +21,9 @@
     </div>
 
 
-    <div class="col-md-12" id="site_wrap" style="padding:1em" >
+    <!--<div class="col-md-12" id="site_wrap" style="padding:1em"> -->
 
-           <div class="site-wrap">
+           <div class="col-md-12 site-wrap" id="site_wrap" >
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
             <label for="nav-trigger"></label>
 
@@ -47,7 +48,7 @@
                         {% if chapter.chapter == 1 %}
                         <h3 id="subchapter_{{chapter}}_{{chapter.sub_chapters}}" class="subchapter">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3>
                         {% else %}
-                        <h3 id="subchapter_{{chapter}}_{{chapter.sub_chapters}}" class="subchapter">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3>
+                        <h3 id="subchapter_{{chapter}}_{{chapter.sub_chapters}}" style="text-align:center">{{ chapter.sub_chapters }}  {{ chapter.sub_content }}</h3>
                         {% endif %}
                 {% endifchanged %}
                     <div class="col-md-12">
@@ -66,9 +67,8 @@
                     {% endif %}
             {% endfor %}
        </div>
-        </div>
 
-        </div>
+</div>
 
 
 
